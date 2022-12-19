@@ -12,12 +12,12 @@ class Deck {
         this.cards = cards;
 
         let suits = ['hearts', 'spades', 'clubs', 'diamonds']
-        let rank = ['ace' ,2,3,4,5,6,7,8,9,10,'jack', 'queen', 'king']
+        let rank = [2,3,4,5,6,7,8,9,10,'jack', 'queen', 'king', 'ace']
         this.cards = [];
 
         for(let i=0; i < suits.length; i++){
             for(let j=0; j < rank.length; j++){
-                this.cards.push(new Card(suits[i], rank[j]))
+                this.cards.push(new Card(suits[i], rank[j], j+2))
             }
         }
     }
@@ -49,11 +49,9 @@ class Player{
 
 let newDeck = new Deck()
 
-newDeck.shuffle(newDeck)
+newDeck.shuffle()
 
-console.log(newDeck)
-
-
-
-// let player1 = new Player(newDeck.cards.splice(newDeck.cards.length / 2))
-// console.log(player1)
+let player1 = new Player(newDeck.cards.splice(newDeck.cards.length / 2))
+let player2 = new Player(newDeck.cards)
+console.log(player1)
+console.log(player2)
